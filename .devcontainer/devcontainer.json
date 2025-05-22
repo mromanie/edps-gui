@@ -1,8 +1,11 @@
 {
   "name": "My EDPS Container",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.shellArgs.linux": ["--login"]
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["--login"]
+    }
   },
   "workspaceFolder": "/home/user",
   "features": {
