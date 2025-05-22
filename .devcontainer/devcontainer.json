@@ -1,5 +1,9 @@
 {
   "name": "My EDPS Container",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.shellArgs.linux": ["--login"]
+  },
   "workspaceFolder": "/home/user",
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
