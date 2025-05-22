@@ -15,7 +15,7 @@
     "dockerfile": "Dockerfile"
   },
   "postCreateCommand": "echo 'Ready!'",
-  "postStartCommand": "port=7860; gui=$(find . -name 'edps-gui.py'); panel serve $gui --plugins edpsgui.pdf_handler --address 0.0.0.0 --port $port --allow-websocket-origin='*' >& /home/user/edps-gui.log",
+  "postStartCommand": "chmod +x ./setup.sh",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
