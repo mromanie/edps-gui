@@ -1,0 +1,9 @@
+{
+  "name": "My Custom Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {},
+  "extensions": [],
+  "postCreateCommand": "echo 'Ready!'"
+}
