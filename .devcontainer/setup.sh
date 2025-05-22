@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Ensure .bashrc is sourced
-echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
-
 port=7860
 gui=$(find . -name 'edps-gui.py')
 repo_name=$(basename $GITHUB_REPOSITORY)
