@@ -11,7 +11,7 @@
     "dockerfile": "Dockerfile"
   },
   "postCreateCommand": "echo 'Ready!'",
-  "postStartCommand": "panel serve venv/lib/python3.12/site-packages/edpsgui/edps-gui.py --plugins --plugins edpsgui.pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*' >& /home/user/panel.log",
+  "postStartCommand": "panel serve venv/lib/python3.12/site-packages/edpsgui/edps-gui.py --plugins edpsgui.pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*' >& /home/user/panel.log",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
