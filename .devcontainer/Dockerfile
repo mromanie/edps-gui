@@ -8,7 +8,7 @@ RUN dnf install -y dnf-plugins-core && \
     dnf clean all
 
 # skip networkx extra-dependencies to reduce image size
-RUN dnf install -y --setopt=install_weak_deps=False python3-networkx which gzip curl graphviz ps top && \
+RUN dnf install -y --setopt=install_weak_deps=False python3-networkx which gzip curl graphviz procps-ng && \
     dnf clean all
 
 # ESO pipeline (incl. all dependencies like ADARI, EDPS, Python3, ...)
