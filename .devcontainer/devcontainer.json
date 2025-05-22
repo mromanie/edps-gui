@@ -9,5 +9,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postStartCommand": "panel serve edps-gui.py --plugins pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*'"
+  "postCreateCommand": "panel serve edps-gui.py --plugins pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*'"
 }
