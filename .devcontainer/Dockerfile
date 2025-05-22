@@ -23,12 +23,13 @@ RUN useradd -m -u 1000 user
 USER user
 
 WORKDIR /home/user
-RUN mkdir .edps EDPS_data
+RUN mkdir .edps EDPS_data .vscode
 
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
 COPY --chown=user ./setup.sh setup.sh
+COPY --chown=user ./vscode_settings.json .vscode/settings.json
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
