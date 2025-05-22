@@ -1,4 +1,9 @@
 #!/bin/bash
+# Ensure bash is the default shell
+chsh -s /bin/bash vscode
+
+# Ensure .bashrc is sourced
+echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
 
 port=7860
 gui=$(find . -name 'edps-gui.py')
@@ -8,5 +13,3 @@ panel serve $gui --plugins edpsgui.pdf_handler --address 0.0.0.0 --port $port --
 
 echo >> .bashrc
 echo "echo Start the GUI at: https://${CODESPACE_NAME}-${port}.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}" >> .bashrc
-
-exec bash --login
