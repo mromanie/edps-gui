@@ -28,7 +28,7 @@ RUN mkdir .edps EDPS_data
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
-COPY --chown=user ./.bashrc .bashrc
+COPY --chown=user ./setup.sh setup.sh
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
