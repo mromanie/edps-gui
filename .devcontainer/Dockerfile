@@ -26,9 +26,6 @@ WORKDIR /home/user
 RUN mkdir .edps EDPS_data
 
 COPY --chown=user ./requirements.txt requirements.txt
-COPY --chown=user ./edps-gui.py edps-gui.py
-COPY --chown=user ./pdf_handler.py pdf_handler.py
-COPY --chown=user ./eso-logo.jpg eso-logo.jpg
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
 
