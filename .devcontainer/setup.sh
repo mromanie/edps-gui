@@ -1,6 +1,4 @@
 #!/bin/bash
-# Ensure bash is the default shell
-chsh -s /bin/bash vscode
 
 # Ensure .bashrc is sourced
 echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
