@@ -11,7 +11,7 @@
     "dockerfile": "Dockerfile"
   },
   "postCreateCommand": "echo 'Ready!'",
-  "postStartCommand": "panel serve venv/lib/python3.12/site-packages/edpsgui/edps-gui.py --plugins edpsgui.pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*' >& /home/user/edps-gui.log & repo_name=$(basename -s .git `git config --get remote.origin.url`); echo Run the GUI at: https://${CODESPACE_NAME}-7860.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}",
+  "postStartCommand": "gui=$(find . -name \"edps-gui.py\") ; panel serve $gui --plugins edpsgui.pdf_handler --address 0.0.0.0 --port 7860 --allow-websocket-origin='*' >& /home/user/edps-gui.log & repo_name=$(basename -s .git `git config --get remote.origin.url`); echo Run the GUI at: https://${CODESPACE_NAME}-7860.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
