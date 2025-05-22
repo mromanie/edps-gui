@@ -16,7 +16,6 @@
   "portsAttributes": {
     "7860": {
       "label": "EDPS App",
-      "onAutoForward": "openBrowser",
       "visibility": "public"
     }
   }
