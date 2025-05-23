@@ -31,6 +31,7 @@ COPY --chown=user ./logging.yaml .edps/logging.yaml
 COPY --chown=user ./setup.sh setup.sh
 COPY --chown=user ./vscode_settings.json .vscode/settings.json
 COPY --chown=user ./start_gui.sh bin/start_gui.sh
+RUN chmod u+x bin/start_gui.sh
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
