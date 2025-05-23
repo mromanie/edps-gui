@@ -23,7 +23,7 @@ RUN useradd -m -u 1000 user
 USER user
 
 WORKDIR /home/user
-RUN mkdir .edps EDPS_data .vscode bin .local/share/jupyter/jupyter_app_launcher
+RUN mkdir .edps EDPS_data .vscode bin ./.local/share/jupyter/jupyter_app_launcher
 
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
