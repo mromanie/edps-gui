@@ -34,6 +34,7 @@ RUN chmod u+x bin/start_gui.sh
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
+RUN pip install jupyter_app_launcher
 
 RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
