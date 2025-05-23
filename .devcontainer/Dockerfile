@@ -37,7 +37,7 @@ RUN python3 -m venv venv && . venv/bin/activate && \
 RUN pip install jupyter_app_launcher ##
 
 RUN mkdir -p $(jupyter --data-dir)/jupyter_app_launcher ##
-COPY --chown=user ./jp_app_launcher_my_script.yaml $(jupyter --data-dir)/jupyter_app_launcher ##
+COPY --chown=user ./jp_app_launcher_my_script.yaml $(jupyter --data-dir)/jupyter_app_launcher/jp_app_launcher_my_script.yaml ##
 
 RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
