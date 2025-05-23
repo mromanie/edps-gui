@@ -1,5 +1,5 @@
-- title: URL example
-  description: Example of opening a URL in a tab
+- title: ESO EDPS
+  description: ESO Data Processing System
   source: https://verbose-sniffle-r4jrvw955jvcxjvr-7860.app.github.dev/edps-gui
   type: url
   catalog: Another catalog
