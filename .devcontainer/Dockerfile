@@ -23,13 +23,15 @@ RUN useradd -m -u 1000 user
 USER user
 
 WORKDIR /home/user
-RUN mkdir .edps EDPS_data .vscode bin
+RUN mkdir .edps EDPS_data .vscode bin .local/share/jupyter/jupyter_app_launcher
 
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
 COPY --chown=user ./setup.sh setup.sh
 COPY --chown=user ./start_gui.sh bin/start_gui.sh
+COPY --chown=user ./jp_app_launcher_edps_gui.yml .local/share/jupyter/jupyter_app_launcher/jp_app_launcher_edps_gui.yml
+
 RUN chmod u+x bin/start_gui.sh
 
 RUN python3 -m venv venv && . venv/bin/activate && \
