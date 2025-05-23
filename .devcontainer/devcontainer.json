@@ -18,7 +18,6 @@
     "dockerfile": "Dockerfile"
   },
   "postCreateCommand": "echo 'Ready!'; chmod +x ./setup.sh; ./setup.sh",
-  #"postStartCommand": "chmod +x ./setup.sh; ./setup.sh",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
