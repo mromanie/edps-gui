@@ -31,7 +31,7 @@ COPY --chown=user ./logging.yaml .edps/logging.yaml
 COPY --chown=user ./setup.sh setup.sh
 COPY --chown=user ./start_gui.sh bin/start_gui.sh
 
-#RUN mkdir ./.local/share/jupyter/jupyter_app_launcher
+#RUN mkdir .local/share/jupyter/jupyter_app_launcher
 #COPY --chown=user ./jp_app_launcher_edps_gui.yml .local/share/jupyter/jupyter_app_launcher/jp_app_launcher_edps_gui.yml
 
 RUN chmod u+x bin/start_gui.sh
