@@ -1,1 +1,2 @@
 pyvo
+astropy
