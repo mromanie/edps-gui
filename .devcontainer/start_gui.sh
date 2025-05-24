@@ -1,4 +1,4 @@
-source venv/bin/activate
+source /home/user/venv/bin/activate
 
 port=7860
 gui=$(find . -name 'edps-gui.py')
