@@ -35,6 +35,9 @@ COPY --chown=user ./start_gui.sh bin/start_gui.sh
 RUN mkdir -p /home/user/.local/share/jupyter/jupyter_app_launcher
 COPY --chown=user ./jp_app_launcher_edps_gui.yml /home/user/.local/share/jupyter/jupyter_app_launcher/jp_app_launcher_edps_gui.yml
 
+COPY --chown=user ./bashrc_profile .bashrc
+COPY --chown=user ./bashrc_profile .profile
+
 RUN chmod u+x bin/start_gui.sh
 
 RUN python3 -m venv venv && . venv/bin/activate && \
