@@ -10,13 +10,12 @@ RUN dnf install -y --setopt=install_weak_deps=False python3-networkx which gzip 
     dnf clean all
 
 # ESO pipeline (incl. all dependencies like ADARI, EDPS, Python3, ...)
-ARG PIPE=fors
-RUN dnf install -y esopipe-${PIPE}-wkf esopipe-${PIPE}-datastatic && \
-    dnf clean all
-#
-ARG PIPE=uves
-RUN dnf install -y esopipe-${PIPE}-wkf esopipe-${PIPE}-datastatic && \
-    dnf clean all
+# Define the list of PIPE values
+ARG PIPES="fors uves"
+RUN for PIPE in $PIPES; do \
+      dnf install -y esopipe-${PIPE}-wkf esopipe-${PIPE}-datastatic; \
+    done
+RUN dnf clean all
 
 ENV XDG_RUNTIME_DIR=/var/run/adari
 RUN mkdir $XDG_RUNTIME_DIR && chmod 777 $XDG_RUNTIME_DIR
