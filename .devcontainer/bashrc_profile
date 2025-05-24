@@ -1,0 +1,16 @@
+alias start_gui='/home/user/bin/start_gui.sh'
+alias check_gui='ps -ef | grep panel'
+
+echo Run check_gui to check the status of the GUI and start_gui to start it ...
+echo
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias del='rm -i'
+alias bck='rm -i *~ .*~ #*# core'
+alias clean='find . -name "*~" -exec rm {} \;'
+alias dir='ls -ltFGh'
+alias ls='ls -G'
+alias ll='ls -la'
+alias grep='grep --color=auto'
+alias pse='ps -U $USER | more'
