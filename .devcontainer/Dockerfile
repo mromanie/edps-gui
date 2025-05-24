@@ -28,7 +28,6 @@ RUN mkdir .edps EDPS_data .vscode bin
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
-COPY --chown=user ./setup.sh setup.sh
 COPY --chown=user ./start_gui.sh bin/start_gui.sh
 
 ###
