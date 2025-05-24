@@ -1,3 +1,5 @@
+source venv/bin/activate
+
 port=7860
 gui=$(find . -name 'edps-gui.py')
 repo_name=$(basename $GITHUB_REPOSITORY)
