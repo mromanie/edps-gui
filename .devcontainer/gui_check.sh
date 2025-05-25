@@ -1,3 +1,3 @@
-$!/bin/bash
+#!/bin/bash
 
 ps -ef | grep panel
