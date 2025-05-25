@@ -3,7 +3,7 @@
 source /home/user/venv/bin/activate
 
 port=7860
-gui=$(find . -name 'edps-gui.py')
+gui=$(find /home/user -name 'edps-gui.py')
 repo_name=$(basename $GITHUB_REPOSITORY)
 
 panel serve $gui --plugins edpsgui.pdf_handler --address 0.0.0.0 --port $port --allow-websocket-origin='*' >& /home/user/edps-gui.log &
