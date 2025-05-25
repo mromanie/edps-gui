@@ -42,6 +42,8 @@ COPY --chown=user ./gui_start.sh bin/gui_start
 RUN chmod u+x bin/gui_start
 COPY --chown=user ./gui_kill.sh bin/gui_kill
 RUN chmod u+x bin/gui_kill
+COPY --chown=user ./gui_check.sh bin/gui_check
+RUN chmod u+x bin/gui_check
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
