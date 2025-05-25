@@ -1,7 +1,8 @@
-#alias start_gui='/home/user/bin/start_gui.sh'
-#alias check_gui='ps -ef | grep panel'
-#
-echo Run gui_check to check the status of the EDPS GUI and gui_start to start it and gui_kill to kill it...
+echo
+echo Commands for the EDPS GUI:
+echo    -check_gui: check the status
+echo    -start_gui: start it
+echo    -kill_gui: kill it
 echo
 
 alias cp='cp -i'
