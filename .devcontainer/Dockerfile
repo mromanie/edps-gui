@@ -30,7 +30,6 @@ RUN mkdir .edps EDPS_data .vscode bin
 COPY --chown=user ./requirements.txt requirements.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
-COPY --chown=user ./start_gui.sh bin/start_gui
 
 ###
 RUN mkdir -p /home/user/.local/share/jupyter/jupyter_app_launcher
@@ -39,7 +38,10 @@ COPY --chown=user ./jp_app_launcher_edps_gui.yml /home/user/.local/share/jupyter
 COPY --chown=user ./bashrc_profile .bashrc
 COPY --chown=user ./bashrc_profile .profile
 
-RUN chmod u+x bin/start_gui
+COPY --chown=user ./gui_start.sh bin/gui_start
+RUN chmod u+x bin/gui_start
+COPY --chown=user ./gui_kill.sh bin/gui_kill
+RUN chmod u+x bin/gui_kill
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements.txt
