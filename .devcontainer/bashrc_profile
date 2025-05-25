@@ -1,4 +1,4 @@
-alias start_gui='/home/user/bin/start_gui.sh'
+#alias start_gui='/home/user/bin/start_gui.sh'
 alias check_gui='ps -ef | grep panel'
 #
 echo Run check_gui to check the status of the EDPS GUI and start_gui to start it ...
@@ -14,3 +14,5 @@ alias ls='ls -G'
 alias ll='ls -la'
 alias grep='grep --color=auto'
 alias pse='ps -U $USER | more'
+
+export PATH=/home/user/bin/:$PATH
