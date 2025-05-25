@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source /home/user/venv/bin/activate
 
 port=7860
