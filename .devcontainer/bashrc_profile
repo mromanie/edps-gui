@@ -1,5 +1,5 @@
 #alias start_gui='/home/user/bin/start_gui.sh'
-alias check_gui='ps -ef | grep panel'
+#alias check_gui='ps -ef | grep panel'
 #
 echo Run check_gui to check the status of the EDPS GUI and start_gui to start it ...
 echo
