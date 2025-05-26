@@ -54,7 +54,7 @@ RUN chmod u+x bin/gui_check
 
 RUN python3 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
-RUN python3 -m venv venv && . venv/bin/activate && \
+RUN python3 -m venv --copies venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
 
 ##RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
