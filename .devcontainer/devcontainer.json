@@ -25,7 +25,7 @@
       ]
     }
   },
-  "postCreateCommand": "echo ciao ; which -a python python3 python3.11 python3.12",
+  "postCreateCommand": "echo ciao ; python3.11 -m pip install pyvo",
   "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
