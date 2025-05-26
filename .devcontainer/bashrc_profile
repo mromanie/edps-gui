@@ -16,4 +16,4 @@ alias ll='ls -la'
 alias grep='grep --color=auto'
 alias pse='ps -U $USER | more'
 
-export PATH=/home/user/bin/:$PATH
+export PATH=/home/user/bin/:/home/user/.local/bin:$PATH
