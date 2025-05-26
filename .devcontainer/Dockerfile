@@ -50,6 +50,7 @@ COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
 RUN mkdir -p scripts
+COPY --chown=user ./requirements_notebooks.txt scripts/requirements_notebooks.txt
 COPY --chown=user ./postCreateCommand.sh scripts/postCreateCommand.sh
 COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
 RUN chmod u+x scripts/* 
