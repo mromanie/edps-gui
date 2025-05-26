@@ -52,7 +52,7 @@ RUN chmod u+x bin/gui_check
 #COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
 #RUN chmod u+x scripts/* 
 
-RUN python3 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+RUN python3.11 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
 RUN python3 -m venv --copies venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
