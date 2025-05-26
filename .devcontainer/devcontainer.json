@@ -17,8 +17,8 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "chmod +x ./postCreateCommand.sh; ./postCreateCommand.sh",
-  "postStartCommand": "chmod +x ./postStartCommand.sh; ./postStartCommand.sh",
+  "postCreateCommand": "bash ./postCreateCommand.sh",
+  "postStartCommand": "bash ./postStartCommand.sh",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
