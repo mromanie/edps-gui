@@ -11,6 +11,13 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
   "postCreateCommand": "",
   "postStartCommand": "",
   "forwardPorts": [7860],
