@@ -27,7 +27,8 @@ USER user
 WORKDIR /home/user
 RUN mkdir .edps EDPS_data .vscode bin
 
-COPY --chown=user ./requirements.txt requirements.txt
+COPY --chown=user ./requirements_edps.txt requirements_edps.txt
+COPY --chown=user ./requirements_notebooks.txt requirements_notebooks.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
 
@@ -45,8 +46,10 @@ RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
+RUN pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+
 RUN python3 -m venv venv && . venv/bin/activate && \
-    pip install --no-cache-dir --upgrade -r requirements.txt
+    pip install --no-cache-dir --upgrade -r requirements_edps.txt
 
 RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
