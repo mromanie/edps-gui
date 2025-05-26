@@ -2,3 +2,4 @@ pyvo
 astropy
 ipywidgets
 numpy
+jupyter
