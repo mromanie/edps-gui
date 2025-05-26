@@ -1,7 +1,7 @@
 FROM fedora:40
 
 ## Keep this line before anything else!
-RUN python3 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+RUN python -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
 RUN dnf install -y dnf-plugins-core && \
     dnf update -y && \
