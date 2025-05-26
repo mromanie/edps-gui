@@ -1,5 +1,8 @@
 FROM fedora:40
 
+## Keep this line before anything else!
+RUN python3 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+
 RUN dnf install -y dnf-plugins-core && \
     dnf update -y && \
     dnf config-manager -y --add-repo=https://ftp.eso.org/pub/dfs/pipelines/repositories/stable/fedora/esorepo.repo && \
@@ -45,8 +48,6 @@ COPY --chown=user ./gui_kill.sh bin/gui_kill
 RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
-
-RUN python3 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
