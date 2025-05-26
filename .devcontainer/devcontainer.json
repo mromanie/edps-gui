@@ -8,11 +8,7 @@
     }
   },
   "workspaceFolder": "/home/user",
-  "features": {
-      "ghcr.io/devcontainers/features/python:1": {
-      "version": "os-provided",
-      "installJupyterlab": true
-      }
+  "features": {}
   },
   "build": {
     "dockerfile": "Dockerfile"
@@ -20,11 +16,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "ms-python.python"
       ]
     }
   },
-  "postCreateCommand": "",
+  "postCreateCommand": "dnf install -y python3-pip && pip3 install --upgrade pip jupyterlab",
   "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
