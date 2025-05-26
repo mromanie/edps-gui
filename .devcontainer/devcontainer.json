@@ -25,7 +25,7 @@
       ]
     }
   },
-  "postCreateCommand": "RUN python3.11 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt",
+  "postCreateCommand": "which -a python python3 python3.11 python3.12",
   "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
