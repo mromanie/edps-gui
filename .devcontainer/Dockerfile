@@ -60,6 +60,6 @@ RUN python3 -m venv venv && . venv/bin/activate && \
 ##RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
 ENV VIRTUAL_ENV=/home/user/venv
-ENV PATH=$VIRTUAL_ENV/bin:$PATH
+###ENV PATH=$VIRTUAL_ENV/bin:$PATH
 ENV EDPSGUI_INPUT_DIR=/home/user/${PIPE}
 #CMD ["panel", "serve", "edps-gui.py", "--plugins", "pdf_handler", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
