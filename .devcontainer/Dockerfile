@@ -46,7 +46,7 @@ RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
-RUN pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+RUN /usr/local/python/current/bin/pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
