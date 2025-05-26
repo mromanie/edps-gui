@@ -8,7 +8,12 @@
     }
   },
   "workspaceFolder": "/home/user",
-  "features":{},
+    "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11",
+      "installJupyterlab": true
+    }
+  },
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -20,8 +25,7 @@
       ]
     }
   },
-  "remoteUser": "root",
-  "postCreateCommand": "dnf install -y python3-pip && pip3 install --upgrade pip jupyterlab",
+  "postCreateCommand": "",
   "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
