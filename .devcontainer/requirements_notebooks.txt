@@ -1,5 +1,5 @@
 pyvo
 astropy
 ipywidgets
-numpy
+numpy==1.27
 jupyterlab
