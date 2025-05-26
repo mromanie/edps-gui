@@ -20,6 +20,7 @@
       ]
     }
   },
+  "remoteUser": "root",
   "postCreateCommand": "dnf install -y python3-pip && pip3 install --upgrade pip jupyterlab",
   "postStartCommand": "",
   "forwardPorts": [7860],
