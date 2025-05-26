@@ -1,8 +1,5 @@
 FROM fedora:40
 
-## Keep this line before anything else!
-#RUN python -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
-
 RUN dnf install -y dnf-plugins-core && \
     dnf update -y && \
     dnf config-manager -y --add-repo=https://ftp.eso.org/pub/dfs/pipelines/repositories/stable/fedora/esorepo.repo && \
@@ -49,12 +46,13 @@ RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
-RUN mkdir -p scripts
-COPY --chown=user ./requirements_notebooks.txt scripts/requirements_notebooks.txt
-COPY --chown=user ./postCreateCommand.sh scripts/postCreateCommand.sh
-COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
-RUN chmod u+x scripts/* 
+#RUN mkdir -p scripts
+#COPY --chown=user ./requirements_notebooks.txt scripts/requirements_notebooks.txt
+#COPY --chown=user ./postCreateCommand.sh scripts/postCreateCommand.sh
+#COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
+#RUN chmod u+x scripts/* 
 
+RUN python3.11 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
 
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
