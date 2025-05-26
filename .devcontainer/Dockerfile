@@ -49,6 +49,12 @@ RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
+RUN mkdir -p scripts
+COPY --chown=user ./postCreateCommand.sh scripts/postCreateCommand.sh
+COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
+RUN chmod u+x scripts/* 
+
+
 RUN python3 -m venv venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r requirements_edps.txt
 
