@@ -8,8 +8,7 @@
     }
   },
   "workspaceFolder": "/home/user",
-  "features": {}
-  },
+  "features":{},
   "build": {
     "dockerfile": "Dockerfile"
   },
