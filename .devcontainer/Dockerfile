@@ -46,20 +46,19 @@ RUN chmod u+x bin/gui_kill
 COPY --chown=user ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
-#RUN mkdir -p scripts
-#COPY --chown=user ./requirements_notebooks.txt scripts/requirements_notebooks.txt
-#COPY --chown=user ./postCreateCommand.sh scripts/postCreateCommand.sh
-#COPY --chown=user ./postStartCommand.sh scripts/postStartCommand.sh
-#RUN chmod u+x scripts/* 
-
-#RUN python3.11 -m pip install --no-cache-dir --upgrade -r requirements_notebooks.txt
+RUN mkdir -p setup_files
+COPY --chown=user ./requirements_notebooks.txt setup_files/requirements_notebooks.txt
+COPY --chown=user ./requirements_edps.txt setup_files/requirements_edps.txt
+COPY --chown=user ./postCreateCommand.sh setup_files/postCreateCommand.sh
+COPY --chown=user ./postStartCommand.sh setup_files/postStartCommand.sh
+RUN chmod u+x setup_files/*.sh 
 
 RUN python3 -m venv --copies venv && . venv/bin/activate && \
-    pip install --no-cache-dir --upgrade -r requirements_edps.txt
+    pip install --no-cache-dir --upgrade -r setup_files/requirements_edps.txt
 
-##RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
+###RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
 ENV VIRTUAL_ENV=/home/user/venv
 ###ENV PATH=$VIRTUAL_ENV/bin:$PATH
 ENV EDPSGUI_INPUT_DIR=/home/user/${PIPE}
-#CMD ["panel", "serve", "edps-gui.py", "--plugins", "pdf_handler", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
+###CMD ["panel", "serve", "edps-gui.py", "--plugins", "pdf_handler", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
