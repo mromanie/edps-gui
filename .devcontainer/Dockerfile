@@ -27,8 +27,6 @@ USER user
 WORKDIR /home/user
 RUN mkdir .edps EDPS_data .vscode bin
 
-COPY --chown=user ./requirements_edps.txt requirements_edps.txt
-COPY --chown=user ./requirements_notebooks.txt requirements_notebooks.txt
 COPY --chown=user ./application.properties .edps/application.properties
 COPY --chown=user ./logging.yaml .edps/logging.yaml
 
