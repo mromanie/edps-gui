@@ -1,8 +1,8 @@
 echo
 echo Commands for the EDPS GUI:
-echo    - gui_check: check the status
-echo    - gui_start: start it
-echo    - gui_kill: kill it
+echo "   - gui_check: check the status"
+echo "   - gui_start: start it"
+echo "   - gui_kill: kill it"
 echo
 
 alias cp='cp -i'
