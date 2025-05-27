@@ -17,8 +17,16 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "echo 'Ready!'; chmod +x ./postCreateCommand.sh; ./postCreateCommand.sh",
-  "postStartCommand": "chmod +x ./postStartCommand.sh; ./postStartCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-toolsai.jupyter",
+        "ms-python.python"
+      ]
+    }
+  },
+  "postCreateCommand": "echo ciao ; /usr/local/python/current/bin/python3.11 -m pip install -r /home/user/setup_files/requirements_notebooks.txt",
+  "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
