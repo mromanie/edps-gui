@@ -25,7 +25,7 @@
       ]
     }
   },
-  "postCreateCommand": "echo ciao ; /usr/local/python/current/bin/python3.11 -m pip install -r /home/user/setup_files/requirements_notebooks.txt",
+  "postCreateCommand": "/usr/local/python/current/bin/python3.11 -m pip install -r /home/user/setup_files/requirements_notebooks.txt",
   "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
