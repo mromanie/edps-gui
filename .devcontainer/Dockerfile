@@ -56,7 +56,7 @@ RUN python3 -m venv --copies venv && . venv/bin/activate && \
 
 ###RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
-RUN ln -s /home/user/EDPS_data /workspaces/$(basename $GITHUB_REPOSITORY)/test
+RUN ln -s /home/user/EDPS_data /workspaces/$(basename $GITHUB_REPOSITORY)/EDPS_data
 
 ENV VIRTUAL_ENV=/home/user/venv
 ###ENV PATH=$VIRTUAL_ENV/bin:$PATH
