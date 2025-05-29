@@ -11,6 +11,6 @@ panel serve $gui --plugins edpsgui.pdf_handler --address 0.0.0.0 --port $port --
 echo "Open the GUI at: https://${CODESPACE_NAME}-${port}.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}"
 
 echo Port $port is open by default, but private. To make it public, open the Codespace not in JupyterLab mode at:
-echo "   https://${CODESPACE_NAME}.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}"
+echo "   https://${CODESPACE_NAME}.app.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/${repo_name}"
 echo and follow the instructions at:
 echo https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace?tool=webui#sharing-a-port
