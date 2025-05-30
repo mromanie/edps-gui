@@ -19,6 +19,7 @@ def decompress_files(input_directory):
             subprocess.run(['gunzip', input_path])
             print(f"Decompressed and removed {filename}")
 
+
 def run_tap_query(tap, query):
     results = None
 
