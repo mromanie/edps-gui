@@ -20,7 +20,7 @@ RUN dnf clean all
 ENV XDG_RUNTIME_DIR=/var/run/adari
 RUN mkdir $XDG_RUNTIME_DIR && chmod 777 $XDG_RUNTIME_DIR
 
-# Create user with sudo (passwordless) proviledges, to be able to dnf-install
+# Create user with sudo priviledges (passwordless), to be able to dnf-install
 ARG USERNAME=user
 RUN dnf install -y sudo shadow-utils \
     && useradd -m -u 1000 $USERNAME \
