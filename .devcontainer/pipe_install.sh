@@ -67,5 +67,5 @@ else
 fi
 
 echo Installing pipeline ${pipe} (${input}) ...
-dnf install -y esopipe-${pipe}-wkf esopipe-${pipe}-datastatic
-dnf clean all
+sudo dnf install -y esopipe-${pipe}-wkf esopipe-${pipe}-datastatic
+sudo dnf clean all
