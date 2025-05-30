@@ -1,64 +1,64 @@
 #!/bin/bash
 
-pipe=$1
+input=$1
 
-if [ "$pipe" == "amber" ]; then
-    true
-elif [[ "$pipe" == "crires+" || "$pipe" == "cr2re" ]]; then
+if [ "$input" == "amber" ]; then
+    pipe="amber"
+elif [[ "$input" == "crires+" || "$input" == "cr2re" ]]; then
     pipe="cr2re"
-elif [ "$pipe" == "crires" ]; then
-    true
-elif [ "$pipe" == "eris" ]; then
-    true
-elif [ "$pipe" == "esotk" ]; then
-    true
-elif [[ "$pipe" == "espresso_da" || "$pipe" == "espda" ]]; then
+elif [ "$input" == "crires" ]; then
+    pipe="crires"
+elif [ "$input" == "eris" ]; then
+    pipe="eris"
+elif [ "$input" == "esotk" ]; then
+    pipe="esotk"
+elif [[ "$input" == "espresso_da" || "$input" == "espda" ]]; then
     pipe="espda"
-elif [[ "$pipe" == "espresso" || "$pipe" == "espresso_dr" || "$pipe" == "espdr" ]]; then
+elif [[ "$input" == "espresso" || "$input" == "espresso_dr" || "$input" == "espdr" ]]; then
     pipe="espdr"
-elif [[ "$pipe" == "fors1" || "$pipe" == "fors2" || "$pipe" == "fors" ]]; then
+elif [[ "$input" == "fors1" || "$input" == "fors2" || "$input" == "fors" ]]; then
     pipe="fors"
-elif [[ "$pipe" == "giraffe" || "$pipe" == "giraf" ]]; then
+elif [[ "$input" == "giraffe" || "$input" == "giraf" ]]; then
     pipe="giraf"
-elif [ "$pipe" == "gravity" ]; then
-    true
-elif [ "$pipe" == "harps" ]; then
-    true
-elif [ "$pipe" == "hawki" ]; then
-    true
-elif [ "$pipe" == "iiinstrument" ]; then
-    true
-elif [ "$pipe" == "isaac" ]; then
-    true
-elif [ "$pipe" == "kmos" ]; then
-    true
-elif [ "$pipe" == "matisse" ]; then
-    true
-elif [ "$pipe" == "midi" ]; then
-    true
-elif [ "$pipe" == "molecfit" ]; then
-    true
-elif [ "$pipe" == "muse" ]; then
-    true
-elif [ "$pipe" == "naco" ]; then
-    true
-elif [ "$pipe" == "nirps" ]; then
-    true
-elif [[ "$pipe" == "sinfoni" || "$pipe" == "sinfo" ]]; then
+elif [ "$input" == "gravity" ]; then
+    pipe="gravity"
+elif [ "$input" == "harps" ]; then
+    pipe="harps"
+elif [ "$input" == "hawki" ]; then
+    pipe="hawki"
+elif [ "$input" == "iiinstrument" ]; then
+    pipe="iiinstrument"
+elif [ "$input" == "isaac" ]; then
+    pipe="isaac"
+elif [ "$input" == "kmos" ]; then
+    pipe="kmos"
+elif [ "$input" == "matisse" ]; then
+    pipe="matisse"
+elif [ "$input" == "midi" ]; then
+    pipe="midi"
+elif [ "$input" == "molecfit" ]; then
+    pipe="molecfit"
+elif [ "$input" == "muse" ]; then
+    pipe="muse"
+elif [ "$input" == "naco" ]; then
+    pipe="naco"
+elif [ "$input" == "nirps" ]; then
+    pipe="nirps"
+elif [[ "$input" == "sinfoni" || "$input" == "sinfo" ]]; then
     pipe="sinfo"
-elif [ "$pipe" == "sofi" ]; then
-    true
-elif [[ "$pipe" == "sphere" || "$pipe" == "spher" ]]; then
+elif [ "$input" == "sofi" ]; then
+    pipe="sofi"
+elif [[ "$input" == "sphere" || "$input" == "spher" ]]; then
     pipe="spher"
-elif [ "$pipe" == "uves" ]; then
-    true
-elif [[ "$pipe" == "vircam" || "$pipe" == "vcam" ]]; then
+elif [ "$input" == "uves" ]; then
+    pipe="uves"
+elif [[ "$input" == "vircam" || "$input" == "vcam" ]]; then
     pipe="vcam"
-elif [ "$pipe" == "vimos" ]; then
-    true
-elif [ "$pipe" == "visir" ]; then
-    true
-elif [[ "$pipe" == "xshooter" || "$pipe" == "xshoo" ]]; then
+elif [ "$input" == "vimos" ]; then
+    pipe="vimos"
+elif [ "$input" == "visir" ]; then
+    pipe="visir"
+elif [[ "$input" == "xshooter" || "$input" == "xshoo" ]]; then
     pipe="xshoo"
 else
     echo Pipeline not in the list ... a typo, perhaps?
@@ -66,6 +66,6 @@ else
     exit 1
 fi
 
-echo Installing pipeline ${pipe}
-dnf install -y esopipe-${PIPE}-wkf esopipe-${PIPE}-datastatic
+echo Installing pipeline ${pipe} (${input}) ...
+dnf install -y esopipe-${pipe}-wkf esopipe-${pipe}-datastatic
 dnf clean all
