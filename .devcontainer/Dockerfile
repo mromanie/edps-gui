@@ -21,34 +21,39 @@ ENV XDG_RUNTIME_DIR=/var/run/adari
 RUN mkdir $XDG_RUNTIME_DIR && chmod 777 $XDG_RUNTIME_DIR
 
 # Create user
-RUN useradd -m -u 1000 user
-USER user
+ARG USERNAME=user
+RUN dnf install -y sudo shadow-utils \
+    && useradd -m -u 1000 $USERNAME \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && usermod -aG wheel $USERNAME
+#RUN useradd -m -u 1000 user
+USER $USERNAME
 
-WORKDIR /home/user
+WORKDIR /home/${USERNAME}
 RUN mkdir .edps EDPS_data .vscode bin
 
-COPY --chown=user ./application.properties .edps/application.properties
-COPY --chown=user ./logging.yaml .edps/logging.yaml
+COPY --chown=$USERNAME ./application.properties .edps/application.properties
+COPY --chown=$USERNAME ./logging.yaml .edps/logging.yaml
 
 ###
-RUN mkdir -p /home/user/.local/share/jupyter/jupyter_app_launcher
-COPY --chown=user ./jp_app_launcher_edps_gui.yml /home/user/.local/share/jupyter/jupyter_app_launcher/jp_app_launcher_edps_gui.yml
+RUN mkdir -p /home/$USERNAME/.local/share/jupyter/jupyter_app_launcher
+COPY --chown=$USERNAME ./jp_app_launcher_edps_gui.yml /home/${USERNAME}/.local/share/jupyter/jupyter_app_launcher/jp_app_launcher_edps_gui.yml
 
-COPY --chown=user ./bashrc_profile .bashrc
-COPY --chown=user ./bashrc_profile .profile
+COPY --chown=$USERNAME ./bashrc_profile .bashrc
+COPY --chown=$USERNAME ./bashrc_profile .profile
 
-COPY --chown=user ./gui_start.sh bin/gui_start
+COPY --chown=$USERNAME ./gui_start.sh bin/gui_start
 RUN chmod u+x bin/gui_start
-COPY --chown=user ./gui_kill.sh bin/gui_kill
+COPY --chown=$USERNAME ./gui_kill.sh bin/gui_kill
 RUN chmod u+x bin/gui_kill
-COPY --chown=user ./gui_check.sh bin/gui_check
+COPY --chown=$USERNAME ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 
 RUN mkdir -p setup_files
-COPY --chown=user ./requirements_notebooks.txt setup_files/requirements_notebooks.txt
-COPY --chown=user ./requirements_edps.txt setup_files/requirements_edps.txt
-COPY --chown=user ./postCreateCommand.sh setup_files/postCreateCommand.sh
-COPY --chown=user ./postStartCommand.sh setup_files/postStartCommand.sh
+COPY --chown=$USERNAME ./requirements_notebooks.txt setup_files/requirements_notebooks.txt
+COPY --chown=$USERNAME ./requirements_edps.txt setup_files/requirements_edps.txt
+COPY --chown=$USERNAME ./postCreateCommand.sh setup_files/postCreateCommand.sh
+COPY --chown=$USERNAME ./postStartCommand.sh setup_files/postStartCommand.sh
 RUN chmod u+x setup_files/*.sh 
 
 RUN python3 -m venv --copies venv && . venv/bin/activate && \
@@ -56,7 +61,7 @@ RUN python3 -m venv --copies venv && . venv/bin/activate && \
 
 ###RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
-ENV VIRTUAL_ENV=/home/user/venv
+ENV VIRTUAL_ENV=/home/${USERNAME}/venv
 ###ENV PATH=$VIRTUAL_ENV/bin:$PATH
-ENV EDPSGUI_INPUT_DIR=/home/user/${PIPE}
+ENV EDPSGUI_INPUT_DIR=/home/${USERNAME}/${PIPE}
 ###CMD ["panel", "serve", "edps-gui.py", "--plugins", "pdf_handler", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
