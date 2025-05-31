@@ -86,8 +86,15 @@ if __name__ == "__main__":
 
     # ... and, if so whished, the demo data ...
     if args.download_demodata:
-        extractor = utilities.DemoDataExtractor('https://www.eso.org/sci/software/pipe_aem_table.html')
-        link = extractor.get_demo_data_link(instrument)
+        # Instantiate the extractor ...
+        extractor = utilities.URLExtractor('https://www.eso.org/sci/software/pipe_aem_table.html', instrument)
+        #
+        # ... and extract matching URL
+        link = extractor.extract_urls()
+
+        if link is None:
+            print(f'No demo data is avaialble for instrument {args.instrument_in}, exiting ...')
+            exit(2)
         print(f"The Demo Data link for {instrument.upper()} is: {link}")
 
         # Extract the filename from the URL
