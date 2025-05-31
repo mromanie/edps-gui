@@ -77,6 +77,39 @@ class TextSelector:
         return self.selected_input
 
 
+class URLExtractor:
+    def __init__(self, html_url, instrument):
+        self.instrument = instrument
+        self.html_url = html_url
+        self.soup = self._load_html()
+
+    def _load_html(self):
+        # Fetch the HTML content from the URL
+        response = requests.get(self.html_url)
+        html_content = response.content
+        return BeautifulSoup(html_content, 'html.parser')
+        
+    def _load_html(self):
+        # with open(self.html_url, 'r', encoding='utf-8') as file:
+            # html_content = file.read()
+        # Fetch the HTML content from the URL
+        response = requests.get(self.html_url)
+        html_content = response.content
+        return BeautifulSoup(html_content, 'html.parser')
+
+    def extract_urls(self):
+        pattern1 = 'https://ftp.eso.org/pub/dfs/pipelines/instruments/'
+        pattern2 = self.instrument + '-demo-reflex'
+
+        links = self.soup.find_all('a', href=True)
+        for link in links:
+            href = link['href']
+            if pattern2 in href and pattern2 in href:
+                return link['href']
+
+        return None
+    
+
 class DemoDataExtractor:
     def __init__(self, html_url):
         self.html_url = html_url
