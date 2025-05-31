@@ -3,21 +3,14 @@ from IPython.display import display, clear_output
 import requests
 from bs4 import BeautifulSoup
 import os
-import subprocess
 
 
-def decompress_files(input_directory):
-    files = os.listdir(input_directory)
-    for filename in files:
-        input_path = os.path.join(input_directory, filename)
-
-        # if filename.endswith('.Z'):
-            # subprocess.run(['uncompress', input_path])
-            # print(f"Decompressed and removed {filename}")
-
-        if filename.endswith('.gz') or filename.endswith('.Z'):
-            subprocess.run(['gunzip', input_path])
-            print(f"Decompressed and removed {filename}")
+def safe_extract_filter(member, tar):
+    # Prevent path traversal attacks
+    target_path = os.path.abspath(os.path.join('.', member.name))
+    if not target_path.startswith(os.path.abspath('.')):
+        raise Exception("Attempted Path Traversal in Tar File")
+    return member
 
 
 def run_tap_query(tap, query):
