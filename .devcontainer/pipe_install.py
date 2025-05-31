@@ -82,7 +82,7 @@ if __name__ == "__main__":
         exit(1)
 
     # Install the requested pipeline ...
-    ###install_esopipe(instrument)
+    install_esopipe(instrument)
 
     # ... and, if so whished, the demo data ...
     if args.download_demodata:
