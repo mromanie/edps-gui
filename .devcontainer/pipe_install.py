@@ -13,7 +13,7 @@ import utilities
 
 instruments = {
     'amber': ['amber'],
-    'cr2re': ['cr2re', 'crires+', 'crires2'],
+    'cr2re': ['cr2re', 'crires+', 'crires2', 'cr2res'],
     'crires': ['crires'],
     'efosc': ['efosc', 'efosc2'],
     'eris': ['eris'],
