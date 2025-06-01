@@ -6,4 +6,4 @@
 #Needed to download files to the local machine: /workspaces is where JupyterLab allows to download the data from
 ln -s /home/user/EDPS_data /workspaces/$(basename $GITHUB_REPOSITORY)/EDPS_data
 
-cp /home/user/bin/utilities.py /workspaces/edps-gui/utilities.py
+cp /home/user/bin/utilities.py /workspaces/$(basename $GITHUB_REPOSITORY)/utilities.py
