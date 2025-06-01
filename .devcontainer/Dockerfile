@@ -50,7 +50,7 @@ COPY --chown=$USERNAME ./gui_check.sh bin/gui_check
 RUN chmod u+x bin/gui_check
 COPY --chown=$USERNAME ./pipe_install.py bin/pipe_install
 RUN chmod u+x bin/pipe_install
-COPY --chown=$USERNAME ../utilities.py bin/utilities.py
+COPY --chown=$USERNAME ./utilities.py bin/utilities.py
 
 RUN mkdir -p setup_files
 COPY --chown=$USERNAME ./requirements_notebooks.txt setup_files/requirements_notebooks.txt
