@@ -15,6 +15,7 @@ ARG PIPES="fors uves"
 RUN for PIPE in $PIPES; do \
       dnf install -y esopipe-${PIPE}-wkf esopipe-${PIPE}-datastatic; \
     done
+###RUN dnf install esopipe-\*-all
 RUN dnf clean all
 
 ENV XDG_RUNTIME_DIR=/var/run/adari
