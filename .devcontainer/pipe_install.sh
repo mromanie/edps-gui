@@ -4,7 +4,7 @@ input=$1
 
 if [ "$input" == "amber" ]; then
     pipe="amber"
-elif [[ "$input" == "crires+" || "$input" == "cr2re" ]]; then
+elif [[ "$input" == "crires+" || "$input" == "cr2re"  || "$input" == "crires2" || "$input" == "cr2res" ]]; then
     pipe="cr2re"
 elif [ "$input" == "crires" ]; then
     pipe="crires"
