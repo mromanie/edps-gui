@@ -2,10 +2,10 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 # Define the user
-NEWUSER=user
+ARG USERNAME=user
 
 # Create the user
-RUN useradd -m -d /home/$NEWUSER -s /bin/bash $NEWUSER
+RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
 
 # Set working directory temporarily
 WORKDIR /tmp
@@ -19,8 +19,8 @@ COPY ./postStartCommand.sh /tmp/postStartCommand.sh
 RUN chmod +x /tmp/postCreateCommand.sh /tmp/postStartCommand.sh
 
 # Switch to the user
-USER $NEWUSER
-WORKDIR /home/${NEWUSER}
+USER $USERNAME
+WORKDIR /home/${USERNAME}
 
 # Move files into the user's home directory
 RUN mkdir -p setup_files && \
