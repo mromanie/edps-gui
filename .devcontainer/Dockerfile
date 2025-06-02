@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 ARG USERNAME=user
 
 # Create the user
-RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
+RUN useradd -m $USERNAME
 
 # Set working directory temporarily
 WORKDIR /tmp
