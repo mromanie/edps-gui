@@ -1,28 +1,21 @@
 {
-  "name": "My EDPS Container",
-  "terminal.integrated.defaultProfile.linux": "bash",
-  "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "/bin/bash",
-      "args": ["--login"]
-    }
-  },
-  "workspaceFolder": "/home/user",
-  "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11",
-      "installJupyterlab": true
-    }
-  },
+  "name": "Ubuntu JupyterLab",
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "forwardPorts": [8888],
+  "postCreateCommand": "jupyter lab --generate-config && echo \"c.ServerApp.token = ''\" >> ~/.jupyter/jupyter_lab_config.py",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-toolsai.jupyter",
-        "ms-python.python"
+        "ms-python.python",
+        "ms-toolsai.jupyter"
       ]
     }
   },
+  "features": {},
+  "remoteUser": "vscode"
 }
