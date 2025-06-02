@@ -21,9 +21,9 @@ WORKDIR /home/linuxbrew
 RUN mkdir .edps EDPS_data
 
 COPY --chown=linuxbrew ./requirements.txt requirements.txt
-COPY --chown=linuxbrew ./edps-gui.py edps-gui.py
-COPY --chown=linuxbrew ./pdf_handler.py pdf_handler.py
-COPY --chown=linuxbrew ./eso-logo.jpg eso-logo.jpg
+#COPY --chown=linuxbrew ./edps-gui.py edps-gui.py
+#COPY --chown=linuxbrew ./pdf_handler.py pdf_handler.py
+#COPY --chown=linuxbrew ./eso-logo.jpg eso-logo.jpg
 COPY --chown=linuxbrew ./application.properties .edps/application.properties
 COPY --chown=linuxbrew ./logging.yaml .edps/logging.yaml
 
