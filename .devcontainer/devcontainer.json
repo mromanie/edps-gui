@@ -18,7 +18,6 @@
       ]
     }
   },
-  "remoteUser": "user",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
