@@ -2,7 +2,6 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG USERNAME=user
-
 # Create user but don't switch yet
 RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
 
