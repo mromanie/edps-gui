@@ -22,3 +22,10 @@ RUN useradd -m -s /bin/bash $USERNAME \
 # Set working directory and switch to the new user
 USER $USERNAME
 WORKDIR /home/${USERNAME}
+
+# Install Homebrew
+RUN curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+RUN echo 'eval "$(/home/${USERNAME}/.linuxbrew/bin/brew shellenv)"' >> /home/${USERNAME}/.bashrc
+RUN eval "$(/home/${USERNAME}/.linuxbrew/bin/brew shellenv)"
+ENV PATH="/home/${USERNAME}/.linuxbrew/bin:/home/${USERNAME}/.linuxbrew/sbin:${PATH}"
+ENV LD_LIBRARY_PATH="/home/${USERNAME}/.linuxbrew/lib:${LD_LIBRARY_PATH}"
