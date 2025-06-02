@@ -1,22 +1,24 @@
 # Use the official Dev Containers base image
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
+# Define the user
 ARG USER=user
-# Create user but don't switch yet
+
+# Create the user
 RUN useradd -m -d /home/$USER -s /bin/bash $USER
 
 # Set working directory temporarily
 WORKDIR /tmp
 
 # Copy setup files (as root)
-COPY --chown=$USER ./bashrc_profile /tmp/bashrc_profile
-COPY --chown=$USER ./postCreateCommand.sh /tmp/postCreateCommand.sh
-COPY --chown=$USER ./postStartCommand.sh /tmp/postStartCommand.sh
+COPY ./bashrc_profile /tmp/bashrc_profile
+COPY ./postCreateCommand.sh /tmp/postCreateCommand.sh
+COPY ./postStartCommand.sh /tmp/postStartCommand.sh
 
 # Make scripts executable
 RUN chmod +x /tmp/postCreateCommand.sh /tmp/postStartCommand.sh
 
-# Now switch to the user and set up their environment
+# Switch to the user
 USER $USER
 WORKDIR /home/${USER}
 
