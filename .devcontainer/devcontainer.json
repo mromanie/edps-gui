@@ -25,6 +25,8 @@
       ]
     }
   },
+  "postCreateCommand": "sh /home/user/setup_files/postCreateCommand.sh",
+  "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
