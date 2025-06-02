@@ -1,0 +1,26 @@
+{
+  "name": "Minimal Python Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/python": {
+      "version": "3.11",
+      "installJupyterlab": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "forwardPorts": [7860],
+  "portsAttributes": {
+    "7860": {
+      "label": "EDPS App",
+      "visibility": "public"
+    }
+  }
+}
+
