@@ -1,12 +1,19 @@
 {
   "name": "Ubuntu JupyterLab",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["--login"]
+    }
+  },
   "build": {
     "dockerfile": "Dockerfile"
   },
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash",
     "terminal.integrated.cwd": "/home/myuser"
   },
+  "workspaceFolder": "/home/user",
   "forwardPorts": [8888],
   "postCreateCommand": "jupyter lab --generate-config && echo \"c.ServerApp.token = ''\" >> ~/.jupyter/jupyter_lab_config.py",
   "customizations": {
