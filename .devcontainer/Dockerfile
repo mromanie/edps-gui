@@ -1,15 +1,15 @@
 # Use the official Dev Containers base image
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
-ARG USERNAME=user
+ARG USER=user
 # Create user but don't switch yet
-RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
+RUN useradd -m -d /home/$USER -s /bin/bash $USER
 
 # Set working directory temporarily
 WORKDIR /tmp
 
 # Copy setup files (as root)
-COPY --chown=$USERNAME ./bashrc_profile /tmp/bashrc_profile
+COPY --chown=$USER ./bashrc_profile /tmp/bashrc_profile
 COPY --chown=$USER ./postCreateCommand.sh /tmp/postCreateCommand.sh
 COPY --chown=$USER ./postStartCommand.sh /tmp/postStartCommand.sh
 
@@ -17,8 +17,8 @@ COPY --chown=$USER ./postStartCommand.sh /tmp/postStartCommand.sh
 RUN chmod +x /tmp/postCreateCommand.sh /tmp/postStartCommand.sh
 
 # Now switch to the user and set up their environment
-USER $USERNAME
-WORKDIR /home/${USERNAME}
+USER $USER
+WORKDIR /home/${USER}
 
 # Move files into the user's home directory
 RUN mkdir -p setup_files && \
