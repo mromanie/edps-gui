@@ -1,30 +1,24 @@
-# Use the official Dev Containers base image
-FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
+# Use the official Ubuntu base image
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
-# Define the user
-ARG USERNAME=user
+# Avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Create the user
-RUN useradd -m $USERNAME
+# Install Python, pip, and JupyterLab
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    && pip3 install --upgrade pip \
+    && pip3 install jupyterlab \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set working directory temporarily
-WORKDIR /tmp
+# Set default shell
+SHELL ["/bin/bash", "-c"]
 
-# Copy setup files (as root)
-COPY ./bashrc_profile /tmp/bashrc_profile
-COPY ./postCreateCommand.sh /tmp/postCreateCommand.sh
-COPY ./postStartCommand.sh /tmp/postStartCommand.sh
+# Expose JupyterLab port
+EXPOSE 8888
 
-# Make scripts executable
-RUN chmod +x /tmp/postCreateCommand.sh /tmp/postStartCommand.sh
-
-# Switch to the user
-USER $USERNAME
-WORKDIR /home/${USERNAME}
-
-# Move files into the user's home directory
-RUN mkdir -p setup_files && \
-    cp /tmp/bashrc_profile ~/.bashrc && \
-    cp /tmp/bashrc_profile ~/.profile && \
-    cp /tmp/postCreateCommand.sh setup_files/ && \
-    cp /tmp/postStartCommand.sh setup_files/
+# Set working directory
+WORKDIR /workspace
