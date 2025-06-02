@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG USERNAME=user
 RUN useradd -m -u 1000 $USERNAME
