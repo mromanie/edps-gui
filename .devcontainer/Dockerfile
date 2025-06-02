@@ -25,7 +25,8 @@ WORKDIR /home/${USERNAME}
 
 # Install Homebrew
 RUN curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-RUN echo 'eval "$(/home/${USERNAME}/.linuxbrew/bin/brew shellenv)"' >> /home/${USERNAME}/.bashrc
-RUN eval "$(/home/${USERNAME}/.linuxbrew/bin/brew shellenv)"
-ENV PATH="/home/${USERNAME}/.linuxbrew/bin:/home/${USERNAME}/.linuxbrew/sbin:${PATH}"
-ENV LD_LIBRARY_PATH="/home/${USERNAME}/.linuxbrew/lib:${LD_LIBRARY_PATH}"
+RUN echo >> /home/myuser/.bashrc
+RUN echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/${USERNAME}/.bashrc
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}"
+ENV LD_LIBRARY_PATH="/home/linuxbrew/.linuxbrew/lib:${LD_LIBRARY_PATH}"
