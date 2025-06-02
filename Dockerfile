@@ -1,7 +1,5 @@
 FROM scidockreg.esac.esa.int:62510/datalabs/jl_base:stable-22.04
 
-FROM ubuntu:latest
-
 RUN apt-get update && \
     apt-get install -y build-essential procps curl file git && \
     apt-get clean
