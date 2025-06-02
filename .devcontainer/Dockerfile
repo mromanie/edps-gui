@@ -15,14 +15,10 @@ RUN apt-get update && apt-get install -y \
 
 # Create a non-root user `myuser` with sudo privileges
 ARG USERNAME=myuser
+RUN useradd -m -s /bin/bash $USERNAME \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
-RUN id -u $USERNAME &>/dev/null || \
-    (useradd -m -s /bin/bash $USERNAME && \
-     echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME && \
-     chmod 0440 /etc/sudoers.d/$USERNAME)
-
-# Set working directory
-WORKDIR /home/$USERNAME
-
-# Switch to non-root user
+# Set working directory and switch to the new user
 USER $USERNAME
+WORKDIR /home/$USERNAME
