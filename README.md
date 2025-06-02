@@ -1,5 +1,12 @@
-Testing the integration of ESO EDPS in a JupyterLab.
+---
+title: Edps
+emoji: 🔥
+colorFrom: red
+colorTo: gray
+sdk: docker
+pinned: false
+license: bsd-3-clause
+short_description: ESO Data Processing System
+---
 
-Meant for ESA's Datalabs.
-
-raw_browse_download.ipynb provides basic querying of the ESO Science Archive. Then, open a JupyterLab terminal and follow the instructions to launch the EDPS GUI.
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
