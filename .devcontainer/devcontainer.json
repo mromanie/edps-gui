@@ -1,23 +1,32 @@
 {
-  "name": "Minimal Python Dev Container",
+  "name": "My EDPS Container",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["--login"]
+    }
+  },
+  "workspaceFolder": "/home/user",
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.11",
       "installJupyterlab": true
     }
   },
-  "workspaceFolder": "/home/user",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "ms-python.python"
       ]
     }
   },
+  "postCreateCommand": "sh /home/user/setup_files/postCreateCommand.sh",
+  "postStartCommand": "",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": {
@@ -26,4 +35,3 @@
     }
   }
 }
-
