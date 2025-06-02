@@ -1,10 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG USERNAME=user
-RUN useradd -m $USERNAME
+RUN useradd -m -d /home/$USERNAME -s /bin/bash USERNAME
 USER $USERNAME
 WORKDIR /home/${USERNAME}
-###ENV PATH="/home/$USERNAME/.local/bin:$PATH"
 
 COPY --chown=$USERNAME ./bashrc_profile .bashrc
 COPY --chown=$USERNAME ./bashrc_profile .profile
