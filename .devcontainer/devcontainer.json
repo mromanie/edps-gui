@@ -9,7 +9,7 @@
   },
   "workspaceFolder": "/home/user",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
+    "ghcr.io/devcontainers/features/python": {
       "version": "3.11",
       "installJupyterlab": true
     }
