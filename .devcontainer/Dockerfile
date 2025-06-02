@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG USERNAME=user
-RUN useradd -m -u 1000 $USERNAME
+RUN useradd -m $USERNAME
 USER $USERNAME
 WORKDIR /home/${USERNAME}
 ###ENV PATH="/home/$USERNAME/.local/bin:$PATH"
