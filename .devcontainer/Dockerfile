@@ -30,3 +30,15 @@ RUN echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/${USE
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}"
 ENV LD_LIBRARY_PATH="/home/linuxbrew/.linuxbrew/lib:${LD_LIBRARY_PATH}"
+
+#COPY --chown=linuxbrew ./requirements.txt requirements.txt
+#COPY --chown=linuxbrew ./edps-gui.py edps-gui.py
+#COPY --chown=linuxbrew ./pdf_handler.py pdf_handler.py
+#COPY --chown=linuxbrew ./eso-logo.jpg eso-logo.jpg
+#COPY --chown=linuxbrew ./application.properties .edps/application.properties
+#COPY --chown=linuxbrew ./logging.yaml .edps/logging.yaml
+
+RUN brew install graphviz
+RUN brew tap eso/pipelines
+RUN brew install esopipe-fors
+
