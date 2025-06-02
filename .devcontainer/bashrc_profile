@@ -4,6 +4,9 @@ echo "   - gui_check: check the status"
 echo "   - gui_start: start it"
 echo "   - gui_kill: kill it"
 echo
+echo pipe_install installs the pipeline for a given instrument, including the demo data, if so whished.
+echo "   usage: pipe_install -h"
+echo
 
 alias cp='cp -i'
 alias mv='mv -i'
