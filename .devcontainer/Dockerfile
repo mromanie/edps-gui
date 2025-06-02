@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG USERNAME=user
-RUN useradd -m -d /home/$USERNAME -s /bin/bash USERNAME
+RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
 USER $USERNAME
 WORKDIR /home/${USERNAME}
 
