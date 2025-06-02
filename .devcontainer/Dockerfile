@@ -21,4 +21,4 @@ RUN useradd -m -s /bin/bash $USERNAME \
 
 # Set working directory and switch to the new user
 USER $USERNAME
-WORKDIR /home/$USERNAME
+WORKDIR /home/${USERNAME}
