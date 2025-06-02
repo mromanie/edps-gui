@@ -4,7 +4,8 @@
     "dockerfile": "Dockerfile"
   },
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.cwd": "/home/myuser"
   },
   "forwardPorts": [8888],
   "postCreateCommand": "jupyter lab --generate-config && echo \"c.ServerApp.token = ''\" >> ~/.jupyter/jupyter_lab_config.py",
