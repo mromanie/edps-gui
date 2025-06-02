@@ -1,0 +1,13 @@
+title: eso_edps
+alternateName: eso_edps
+abstract: Notebooks and EDPS to find and process ESO raw data
+contactPoint.email: martino.romaniello@eso.org
+creator.name: Martino Romaniello (ESO)
+version: 0.0.1
+description: > 
+  This datalab is used to demonstrate the creation and build of a 
+  custom JupyterLab with ESO's EDPS software installed to process ESO raw data.
+  It also contains Jupyter Notebooks to browse the raw data to be processed.
+distribution.license: None
+domain: www.eso.org
+language: english
