@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
 ARG USERNAME=user
-RUN useradd -m -d /home/linuxbrew -s /bin/bash $USENAME
-USER $USENAME
+RUN useradd -m -u 1000 $USERNAME
+USER $USERNAME
 ENV PATH="/home/$USERNAME/.local/bin:$PATH"
