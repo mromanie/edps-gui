@@ -5,6 +5,16 @@ from bs4 import BeautifulSoup
 import os
 
 
+def decompress_files(directory):
+    # Iterate over all files in the given directory
+    for filename in os.listdir(directory):
+        file_path = os.path.join(directory, filename)
+        
+        # Decompress .gz and .Z files using gunzip
+        if filename.endswith('.gz') or filename.endswith('.Z'):
+            os.system(f'gunzip "{file_path}"')
+
+
 def safe_extract_filter(member, tar):
     # Prevent path traversal attacks
     target_path = os.path.abspath(os.path.join('.', member.name))
