@@ -1,24 +1,30 @@
-# Use the official Ubuntu base image
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
-# Avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install Python, pip, and JupyterLab
+# Install Python and JupyterLab
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-venv \
+    sudo \
     && pip3 install --upgrade pip \
     && pip3 install jupyterlab \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Set default shell
-SHELL ["/bin/bash", "-c"]
+# Create a non-root user `myuser` with sudo privileges
+ARG USERNAME=myuser
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
 
-# Expose JupyterLab port
-EXPOSE 8888
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Set working directory
-WORKDIR /workspace
+WORKDIR /home/$USERNAME
+
+# Switch to non-root user
+USER $USERNAME
