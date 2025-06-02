@@ -1,14 +1,17 @@
 # Use the official Dev Containers base image
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
-# Optional: Set a non-root user (default is vscode)
-# USER vscode
+ARG USERNAME=user
+RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
+USER $USERNAME
+WORKDIR /home/${USERNAME}
 
-# Optional: Set working directory
-WORKDIR /workspaces/app
+COPY --chown=$USERNAME ./bashrc_profile .bashrc
+COPY --chown=$USERNAME ./bashrc_profile .profile
 
-# Install any additional dependencies (if needed)
-# RUN apt-get update && apt-get install -y <your-packages>
-
-# Default command (optional)
-CMD [ "bash" ]
+RUN mkdir -p setup_files
+###COPY --chown=$USERNAME ./requirements_notebooks.txt setup_files/requirements_notebooks.txt
+###COPY --chown=$USERNAME ./requirements_edps.txt setup_files/requirements_edps.txt
+COPY --chown=$USERNAME ./postCreateCommand.sh setup_files/postCreateCommand.sh
+COPY --chown=$USERNAME ./postStartCommand.sh setup_files/postStartCommand.sh
+RUN chmod u+x setup_files/*.sh 
