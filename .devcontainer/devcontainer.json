@@ -15,7 +15,7 @@
   },
   "workspaceFolder": "/home/myuser",
   "forwardPorts": [8888],
-  "postCreateCommand": "jupyter lab --generate-config && echo \"c.ServerApp.token = ''\" >> ~/.jupyter/jupyter_lab_config.py",
+  "postCreateCommand": "chsh -s /bin/bash; jupyter lab --generate-config && echo \"c.ServerApp.token = ''\" >> ~/.jupyter/jupyter_lab_config.py",
   "customizations": {
     "vscode": {
       "extensions": [
