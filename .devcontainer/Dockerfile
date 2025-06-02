@@ -10,10 +10,9 @@ RUN useradd -m -d /home/$USERNAME -s /bin/bash $USERNAME
 WORKDIR /tmp
 
 # Copy setup files (as root)
-COPY ./bashrc_profile /tmp/bashrc_profile
-COPY ./bashrc_profile /tmp/profile
-COPY ./postCreateCommand.sh /tmp/postCreateCommand.sh
-COPY ./postStartCommand.sh /tmp/postStartCommand.sh
+COPY --chown $USER ./bashrc_profile /tmp/bashrc_profile
+COPY --chown $USER ./postCreateCommand.sh /tmp/postCreateCommand.sh
+COPY --chown $USER ./postStartCommand.sh /tmp/postStartCommand.sh
 
 # Make scripts executable
 RUN chmod +x /tmp/postCreateCommand.sh /tmp/postStartCommand.sh
@@ -25,6 +24,6 @@ WORKDIR /home/${USERNAME}
 # Move files into the user's home directory
 RUN mkdir -p setup_files && \
     cp /tmp/bashrc_profile ~/.bashrc && \
-    cp /tmp/profile ~/.profile && \
+    cp /tmp/bashrc_profile ~/.profile && \
     cp /tmp/postCreateCommand.sh setup_files/ && \
     cp /tmp/postStartCommand.sh setup_files/
