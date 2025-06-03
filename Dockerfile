@@ -38,3 +38,5 @@ ENV VIRTUAL_ENV=/home/linuxbrew/venv
 ENV PATH=$VIRTUAL_ENV/bin:$PATH
 
 #CMD ["panel", "serve", "edps-gui.py", "--plugins", "pdf_handler", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
