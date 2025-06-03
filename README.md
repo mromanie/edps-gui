@@ -1,1 +1,1 @@
-Testing the integration of ESO EDPS in a JupyterLab in ESA's Datalab.
+Testing the integration of ESO EDPS in a JupyterLab in MyBinder.
