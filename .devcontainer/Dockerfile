@@ -63,10 +63,10 @@ RUN chmod u+x setup_files/*.sh
 RUN python3 -m venv --copies venv && . venv/bin/activate && \
     pip install --no-cache-dir --upgrade -r setup_files/requirements_edps.txt
 
-RUN mv /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow.py \
-       /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow_orig.py
-COPY --chown=$USERNAME workflow_nopdf.py \
-       /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow.py
+#RUN mv /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow.py \
+#       /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow_orig.py
+#COPY --chown=$USERNAME workflow_nopdf.py \
+#       /home/user/venv/lib/python3.11/site-packages/edpsgui/gui/workflow.py
 
 ###RUN curl https://ftp.eso.org/pub/dfs/pipelines/instruments/fors/fors-demo-reflex-1.0.tar.gz | tar -zxf -
 
